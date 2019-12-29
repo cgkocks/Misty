@@ -14,8 +14,8 @@ function _TakePicture(data) {
     var base64String = data.Result.Base64;
     misty.PlayAudio("s_SystemCameraShutter.wav")
     misty.Debug("Picture taken");
-    var facePlusPlusKey = "EOR0Z1YLaiJvA-bkcOlXOILEzOpCiYoF"
-    var facePlusPlusSecret = "8lR-X_CeSCjQf-grdECHk0Se85xILJYE"    
+    var facePlusPlusKey = "<YourKey>"
+    var facePlusPlusSecret = "<YourSecret>"    
     // Send image as Base64 to Face++ API
     misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_base64=" + base64String + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
     misty.Debug("Picture posted to Face++");
