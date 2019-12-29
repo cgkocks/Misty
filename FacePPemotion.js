@@ -1,6 +1,6 @@
 // Demonstrate POST a photo to Face++ 
-var facePlusPlusKey = "EOR0Z1YLaiJvA-bkcOlXOILEzOpCiYoF"
-var facePlusPlusSecret = "8lR-X_CeSCjQf-grdECHk0Se85xILJYE"    
+var facePlusPlusKey = "<YourKey>"
+var facePlusPlusSecret = "<YourSecret"    
 var base64String 
 misty.TakePicture("MyPic", 200, 200, true, true)
 
