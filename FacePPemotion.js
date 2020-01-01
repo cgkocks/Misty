@@ -1,18 +1,25 @@
 // Demonstrate POST a photo to Face++ 
-var facePlusPlusKey = "<YourKey>"
-var facePlusPlusSecret = "<YourSecret>"    
-var base64String 
-misty.TakePicture("MyPic", 200, 200, true, true)
+var facePlusPlusKey = "EOR0Z1YLaiJvA-bkcOlXOILEzOpCiYoF"
+var facePlusPlusSecret = "8lR-X_CeSCjQf-grdECHk0Se85xILJYE"    
+//misty.Set("base64String", "string", true)
+_base64String = "string"
+var imagename = "MyPic.jpg"
+
+misty.TakePicture("MyPic", 100, 100, true, true)
 
 function _TakePicture(data) {
-    var base64String = data.Result.Base64;
+    //misty.Set("base64String", data.Result.Base64, true);
+    base64String = data.Result.base64
+    // imagename = data.Result.Name;
+    // misty.Debug(imagename);
     misty.PlayAudio("s_SystemCameraShutter.wav");
     misty.Debug("Picture taken");
-//    misty.Debug(base64String)
 }
 misty.Pause(10000);
-// Send image as Base64 to Face++ API
+// Send image as File, Base64, or URL to Face++ API
 misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_base64=" + base64String + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
+// misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_file=" + "MyPic.jpg" + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
+// misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_url=" + "https://tinyurl.com/vt3rp5u" + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
 
 // Handle Face++ response data
 function _analyzeImageResponse(responseData) {
@@ -60,15 +67,3 @@ function _analyzeImageResponse(responseData) {
 }
 misty.Debug("Program Completed")
 
-// function _analyzeImage(responseData) {
-//    var link = JSON.parse(responseData.Result.ResponseObject.Data).data.link;
-//    var facePlusPlusKey = "EOR0Z1YLaiJvA-bkcOlXOILEzOpCiYoF"
-//    var facePlusPlusSecret = "8lR-X_CeSCjQf-grdECHk0Se85xILJYE"
-    // Send URL of image to Face++ API
-    // misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_url=" + link + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
-// }
-
-// Returns the public URL for your image
-// function _imageUploadResponse(responseData) {
-//    misty.Debug(JSON.parse(responseData.Result.ResponseObject.Data).data.link);
-// }
