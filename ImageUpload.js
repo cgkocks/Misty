@@ -37,8 +37,8 @@ function _TakePicture(data) {
 // function _analyzeImage(responseData) {
     
 //    var link = JSON.parse(responseData.Result.ResponseObject.Data).data.link;
-//    var facePlusPlusKey = "EOR0Z1YLaiJvA-bkcOlXOILEzOpCiYoF"
-//    var facePlusPlusSecret = "8lR-X_CeSCjQf-grdECHk0Se85xILJYE"
+//    var facePlusPlusKey = "<YourKey>"
+//    var facePlusPlusSecret = "<YourSecret>"
     
     // Send URL of image to Face++ API
     // misty.SendExternalRequest("POST", "https://api-us.faceplusplus.com/facepp/v3/detect?api_key=" + facePlusPlusKey + "&api_secret=" + facePlusPlusSecret + "&image_url=" + link + "&return_attributes=emotion", null, null, null, false, false, null, "application/json", "_analyzeImageResponse");
