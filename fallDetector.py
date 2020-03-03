@@ -8,7 +8,7 @@ import time
 
 # ========== Pulling Image from Misty Endpoint =====================
 
-robotIP = '192.168.1.21'
+robotIP = '192.xxx.1.xx'
 # URL = 'http://'+robotIP+'/api/cameras/fisheye'  
 GetImageURL = 'http://'+ robotIP +'/api/cameras/rgb?base64=false&FileName=MyPicture&Width=320&Height=240&DisplayOnScreen=true&OverwriteExisting=true'
 
@@ -24,8 +24,7 @@ GetImageURL = 'http://'+ robotIP +'/api/cameras/rgb?base64=false&FileName=MyPict
 # # ============ Load and get model ready ==============================
 
 np.set_printoptions(suppress=True)
-model = tensorflow.keras.models.load_model('/Users/Chris/My Documents/Misty/Teachable Machine/keras_model.h5')
-# Or use saved TM URL location of project https://teachablemachine.withgoogle.com/models/lTTP7o5R/ 
+model = tensorflow.keras.models.load_model('/Users/CGK/My Documents/Misty/Teachable Machine/keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # # ========== Prediction ============================================
